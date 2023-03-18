@@ -3,8 +3,8 @@ from ..utils import db
 from datetime import datetime
 
 class Role(Enum):
-    admin = 'admin'
-    student = 'student'
+    STUDENT = 'student'
+    ADMIN = 'admin'
 
 
 class Student(db.Model):
@@ -15,7 +15,7 @@ class Student(db.Model):
     password_hash = db.Column(db.Text(), nullable=False)
     courses = db.relationship('Course', secondary='enrollments', backref='students', lazy='dynamic')
     grades = db.relationship('Grade', backref='student', lazy='dynamic')
-    role = db.Column(db.Enum(Role), default=Role.student)
+    role = db.Column(db.Enum(Role), default=Role.STUDENT)
 
 
     def __repr__(self):

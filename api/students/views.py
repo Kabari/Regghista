@@ -22,7 +22,7 @@ signup_model = student_namespace.model(
         'email': fields.String(required=True, description='An email'),
         'password': fields.String(required=True, description='A password'),
         'role': fields.String(description='The role of the user', required=True,
-            enum = ['admin','student'])
+            enum = ['STUDENT','ADMIN'])
 
     }
 )
@@ -58,7 +58,7 @@ student_model = student_namespace.model(
         'email': fields.String(required=True, description='An email'),
         'password_hash': fields.String(required=True, description='A password'),
         'role': fields.String(description='The role of the user', required=True,
-            enum = ['admin','student'])
+            enum = ['STUDENT','ADMIN'])
     }
 )
 
